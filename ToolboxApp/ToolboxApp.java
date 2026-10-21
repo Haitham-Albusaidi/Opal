@@ -265,5 +265,38 @@ public class ToolboxApp {
         }
     }
 
-    
+    public static void diamond() {
+        System.out.print("how many rows do you want? : ");
+        int rrows = 0;
+        try{
+            rrows = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
+
+        for (int i = 0; i<=rrows ; i++)
+        {
+            
+            for (int j = rrows; j>i; j--)
+            {
+                System.out.print(" ");
+            }
+            for (int k = 0; k < (i*2-1) ; k++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();   
+        }
+        for (int i = rrows-1 ;i>=1 ; i--)
+        {
+            for (int j = rrows; j>i ; j--)
+            {   
+                System.out.print(" ");
+            }
+            for (int k = 0; k < (i*2-1) ; k++ )
+            {
+                System.out.print("*");
+            }
+            System.out.println(); 
+        }
+    }
 }

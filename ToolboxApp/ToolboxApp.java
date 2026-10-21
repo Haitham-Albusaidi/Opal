@@ -23,7 +23,8 @@ public class ToolboxApp {
             System.out.println("7. Prime Number ");
             System.out.println("8. Reverse a Number");
             System.out.println("9. Number Pyramid ");
-            System.out.println("10. Exit");
+            System.out.println("10. Diamond");
+            System.out.println("11. Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             switch (choice) {
@@ -55,6 +56,9 @@ public class ToolboxApp {
                     numberPyramid();
                     break;
                 case 10:
+                    diamond();
+                    break;
+                case 11:
                     isRunning = false;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -239,7 +243,27 @@ public class ToolboxApp {
     }
     // Method to print a number pyramid of a given height
     public static void numberPyramid(){
+        System.out.println("how many rows do you want? : ");
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
 
+        for (int i = 1; i<num ; i++)
+        {
+            
+            for (int j = num; j>i; j--)
+            {
+                System.out.print("");
+            }
+            for (int k = 1; k <= i-1 ; k++)
+            {
+                System.out.print(k);
+            }
+            System.out.println(i);   
+        }
     }
 
+    
 }

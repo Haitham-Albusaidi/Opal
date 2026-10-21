@@ -65,18 +65,36 @@ public class ToolboxApp {
     // Method to convert Celsius to Fahrenheit
     public static void celsiusToFahrenheit() {
         System.out.print("Enter a Celsius Temp: ");
-        double temp = sc.nextDouble();
+        double temp;
+        try{temp = sc.nextDouble();}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return; }
+
         System.out.println("Fahrenheit: "+(temp * 9/5 + 32));
     }
 
     // Method to check if a number is even or odd
     public static void evenOrOdd() {
+        System.out.print("Enter a number: ");
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return; }
         
+        if(num%2==0)
+        {
+            System.out.println("Even");
+        }
+        else
+        {
+            System.out.println("ODD");
+        }
     }
     
     // Method to find the maximum of three numbers
     public static void maxOfThree() {
         
+
     }
 
     // Method to calculate the factorial of a number.

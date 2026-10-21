@@ -122,7 +122,26 @@ public class ToolboxApp {
 
     // Method to calculate the factorial of a number.
     public static void factorial() {
+        System.out.print("Enter a number (0-15): ");
+        
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
 
+        if(num < 0 || num >15){
+            System.out.println("Out of range");
+            return;
+        }
+
+        long factoriall = 1;
+        for (int i = 1; i <= num; i++) {
+            factoriall *= i;
+        }
+
+        System.out.println(num + "! = "+factoriall);
+        
     }
     // Method to generate a multiplication table for a given number 
     public static void multiplicationTable() {

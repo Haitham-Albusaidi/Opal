@@ -64,7 +64,9 @@ public class ToolboxApp {
 
     // Method to convert Celsius to Fahrenheit
     public static void celsiusToFahrenheit() {
-        
+        System.out.print("Enter a Celsius Temp: ");
+        double temp = sc.nextDouble();
+        System.out.println("Fahrenheit: "+(temp * 9/5 + 32));
     }
 
     // Method to check if a number is even or odd

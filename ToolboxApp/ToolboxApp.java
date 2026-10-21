@@ -145,7 +145,18 @@ public class ToolboxApp {
     }
     // Method to generate a multiplication table for a given number 
     public static void multiplicationTable() {
-        
+        System.out.println("Enter a number: ");
+
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
+
+        for (int i = 0; i <= 10; i++)
+        {
+            System.out.println(+ num + " x "+i+" = "+(num*i));
+        }
         }
     
 

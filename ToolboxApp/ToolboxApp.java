@@ -93,7 +93,30 @@ public class ToolboxApp {
     
     // Method to find the maximum of three numbers
     public static void maxOfThree() {
+        System.out.print("Enter 1st number: ");
+        int num1 = 0;
+        try{
+            num1 = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return; }
         
+
+        System.out.print("Enter 2nd number: ");
+        int num2 = 0;
+        try{
+            num2 = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return; }
+        
+        System.out.print("Enter 3rd number: ");
+        int num3 = 0;
+        try{
+            num3 = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return; }
+        
+        int highest = Math.max(num1 , Math.max(num2, num3));
+        System.out.println("The max is: "+highest);
 
     }
 

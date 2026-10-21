@@ -185,7 +185,7 @@ public class ToolboxApp {
         
     }
 
-    
+
     // Method to check if a number is prime
     public static void isPrime(){
         System.out.println("Enter a number");
@@ -219,7 +219,23 @@ public class ToolboxApp {
     }
     // Method to reverse a number
     public static void reverseNumber(){
+        
+        System.out.println("Enter a number");
 
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
+
+        int reversed = 0;
+        while(num != 0)
+        {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        System.out.println("Reversed Number: " + reversed);
     }
     // Method to print a number pyramid of a given height
     public static void numberPyramid(){

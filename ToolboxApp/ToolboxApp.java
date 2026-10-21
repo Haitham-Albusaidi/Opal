@@ -162,7 +162,26 @@ public class ToolboxApp {
 
     // Method to print a star triangle of a given height
     public static void starTriangle() {
-        
+        System.out.println("how many rows do you want? : ");
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
+
+        for (int i = 0; i<=num ; i++)
+        {
+            
+            for (int j = num; j>i; j--)
+            {
+                System.out.print(" ");
+            }
+            for (int k = 0; k < i ; k++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();   
+        }
         
     }
     // Method to check if a number is prime

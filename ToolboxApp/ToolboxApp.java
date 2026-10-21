@@ -184,8 +184,37 @@ public class ToolboxApp {
         }
         
     }
+
+    
     // Method to check if a number is prime
     public static void isPrime(){
+        System.out.println("Enter a number");
+
+        int num = 0;
+        try{
+            num = sc.nextInt();
+        }
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");sc.next(); return;} 
+
+        if(num<2)
+        {
+            System.out.println("enter a number greater than 1");
+            return;
+        }
+        boolean isPrime = true;
+    
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        
+        if (isPrime) {
+            System.out.println(num + " is prime.");
+        } else {
+            System.out.println(num + " is not prime.");
+        }
 
     }
     // Method to reverse a number

@@ -14,15 +14,15 @@ public class ATMProject {
 
 
     public static int numinput(){
-        int num = 0;
+        int num = 999;
         try{num = sc.nextInt();}
-        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number."); sc.next();}
         return num;
     }
     public static double doubleNumInput(){
         double num = 0;
         try{num = sc.nextDouble();}
-        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number."); sc.next();}
         return num;
     }
     public static boolean login(){
@@ -37,7 +37,7 @@ public class ATMProject {
                 return true;
             }
             else{
-                System.out.println("Wrong password");
+                System.out.println("Wrong password, attempts left: " + (2-i) );
             }
         }
         return false;
@@ -89,14 +89,16 @@ public class ATMProject {
                     break;
                 case 0:
                     isRunning = false;
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
+                    break;
             }
         } 
     }
 
-    public static double checkBalance(){
-        return balance;
+    public static void checkBalance(){
+        System.out.println("Current Balance: " + balance);
     }
     public static void deposit() {
         System.out.print("Enter the deposit amount: ");
@@ -110,6 +112,7 @@ public class ATMProject {
         balance += depo;
         depositAmount +=depo;
         depositCount++;
+        System.out.println("Current Balance: " + balance);
 
     }
     

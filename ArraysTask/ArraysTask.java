@@ -7,15 +7,20 @@ public class ArraysTask {
     public static void main(String[] args) {
         int[] numbers = {12, 7, 25, 3, 18, 9, 30, 14};
 
-
-
-
         int sum = sumArray(numbers);
         double average = averageArray(numbers);
         int max = findMax(numbers);
         int min = findMin(numbers);
         int diff = (findMax(numbers)-findMin(numbers));
         int even = countEven(numbers);
+        int[]newarr = reverseArray(numbers);
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
+        System.out.println("Max: " + max);
+        System.out.println("Min: " + min);
+        System.out.println("Difference: " + diff);
+        System.out.println("Even Numbers: " + even);
 
         System.out.print("Enter a number to search for: "); 
         int num = 0;
@@ -24,18 +29,6 @@ public class ArraysTask {
         try{num = sc.nextInt(); isValid = true;}
         catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
         
-        int[]newarr = reverseArray(numbers);
-
-
-
-        System.out.println("Sum: " + sum);
-        System.out.println("Average: " + average);
-
-        System.out.println("Max: " + max);
-        System.out.println("Min: " + min);
-        System.out.println("Difference: " + diff);
-
-        System.out.println("Even Numbers: " + even);
         if (isValid ){
             index = indexOf(numbers, num);
             if(index != -1){
@@ -52,7 +45,19 @@ public class ArraysTask {
         System.out.print("Reversed: "); printArray(newarr);
         System.out.println();
         
-        
+        System.out.print("How many grades Do you want enter? ");
+        int num2 =0;
+        boolean isValid2 = false;
+        int[] gradess = null;
+        try{num2 = sc.nextInt(); isValid2 = true;}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
+        if (isValid2 ){
+            gradess = readGrades(num2);
+            int passedCount = countPassed(gradess);
+            int failedCount = gradess.length - passedCount;
+            System.out.println("Passed: " + passedCount);
+            System.out.println("Failed: " + failedCount);
+        }
         
 
 
@@ -130,6 +135,38 @@ public class ArraysTask {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+    }
+
+
+    static int[] readGrades(int size){
+        int [] grades = new int[size];
+
+        for(int i = 0 ; i<grades.length ; i++){
+            System.out.println("Enter grade "+(i+1));
+
+            try{grades[i] = sc.nextInt();}
+            catch(Exception e) {
+                    System.out.println("Invalid input. Please enter a number.");
+                    sc.next();
+                    i--;
+                }
+            if(grades[i]<0 || grades[i]>100){
+                System.out.println("Invalid input. Please enter a number between 0 and 100.");
+                i--;
+            }
+        }
+        return grades;
+    }
+
+    static int countPassed(int[] grades){
+        int passed = 0;
+        for (int i = 0; i < grades.length; i++)
+        {
+            if (grades[i] >= 50){
+            passed++;
+            }
+        }
+        return passed;
     }
 
 }

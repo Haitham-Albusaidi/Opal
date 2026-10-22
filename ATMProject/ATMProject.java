@@ -79,13 +79,13 @@ public class ATMProject {
                     accountTier();
                     break;
                 case 5:
-                    multiplicationTable();
+                    savingsProjection();
                     break;
                 case 6:
-                    starTriangle();
+                    receiptSummary();
                     break;
                 case 7:
-                    isPrime();
+                    changePin();
                     break;
                 case 0:
                     isRunning = false;
@@ -106,6 +106,7 @@ public class ATMProject {
             System.out.println("invalid amount, (1-5000)");
             return;
         }
+        System.out.println("Deposit successful: " + depo);
         balance += depo;
         depositAmount +=depo;
         depositCount++;
@@ -149,34 +150,79 @@ public class ATMProject {
         }
         
             System.out.println("Fee: " + fee);
+            System.out.println("Total amount withdrawn: " + (draw + fee));
             balance -=draw+fee;
             WithdrawalCount++;
             WithdrawalAmount+=draw;
 
     }
 
-   public static void accountTier(){
-    String tier = "";
-    double interestRate = 0;
-    if (balance < 1000) {
-        tier = "Bronze";
-        interestRate = 0.01;
-    } else if (balance >= 1000 && balance < 5000) {
-        tier = "Silver";
-        interestRate = 0.02;
-    } else if (balance >= 5000 && balance < 20000) {
-        tier = "Gold";
-        interestRate = 0.03;
-    } else {
-        tier = "Platinum";
-        interestRate = 0.04;
+    public static double getInterestRate() {
+        if (balance < 1000) {
+            return 0.01;
+        } else if (balance < 5000) {
+            return 0.02;
+        } else if (balance < 20000) {
+            return 0.03;
+        } else {
+            return 0.04;
+        }
     }
-    System.out.println("Account Tier: " + tier);
-    System.out.println("Interest Rate: " + (interestRate * 100) + "%");
-}
+    public static void accountTier(){
+        String tier;
+        double interestRate = getInterestRate();
+        if (balance < 1000) {
+            tier = "Bronze";
+        } else if (balance < 5000) {
+            tier = "Silver";
+        } else if (balance < 20000) {
+            tier = "Gold";
+        } else {
+            tier = "Platinum";
+        }
+        System.out.println("Account Tier: " + tier);
+        System.out.println("Interest Rate: " + (interestRate * 100) + "%");
+    }
 
+    public static void savingsProjection(){
+        System.out.print("Enter the number of years for projection: ");
+        int years = numinput();
+        if(years < 1 || years > 10)
+        {
+            System.out.println("Invalid input. (1-10) years.");
+            return;
+        }
+        double interestRate = getInterestRate();
+        for (int i = 1; i <= years; i++) {
+            double newbalance = balance * interestRate;
+            System.out.printf("Year %d: %.2f\n", i, newbalance);
+        }
+    }
+    
+    public static void receiptSummary(){
+        System.out.println("Receipt Summary:");
+        System.out.println("Current Balance: " + balance);
+        System.out.println("Total Deposits: " + depositCount + " (Amount: " + depositAmount + ")");
+        System.out.println("Total Withdrawals: " + WithdrawalCount + " (Amount: " + WithdrawalAmount + ")");
+    }
+    
+    public static void changePin(){
+        System.out.print("Enter your current PIN: ");
+        int currentPin = numinput();
+        if (currentPin != pin) {
+            System.out.println("Incorrect PIN. Please try again.");
+            return;
+        }
+        System.out.print("Enter your new PIN: ");
+        int newPin = numinput();
+        if (newPin < 1000 || newPin > 9999) {
+            System.out.println("Invalid PIN. Please enter a 4-digit number.");
+            return;
+        }
+        pin = newPin;
+        System.out.println("PIN changed successfully.");
+    }
     public static void main(String[] args){
-        login();
         menu();
     }
 }

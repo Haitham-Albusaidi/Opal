@@ -24,6 +24,7 @@ public class ArraysTask {
         try{num = sc.nextInt(); isValid = true;}
         catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
         
+        int[]newarr = reverseArray(numbers);
 
 
 
@@ -45,6 +46,12 @@ public class ArraysTask {
                 System.out.println(num + " not found");
             }
         }
+        
+        System.out.print("Original: " ); printArray(numbers);
+        System.out.println();
+        System.out.print("Reversed: "); printArray(newarr);
+        System.out.println();
+        
         
         
 
@@ -108,6 +115,21 @@ public class ArraysTask {
             }
         }
         return -1;
+    }
+
+    static int[] reverseArray(int[] arr){
+        int[] newarrey = new int[arr.length];
+        for (int i = 0; i < arr.length; i++){
+            newarrey[i] = arr[arr.length-1-i];
+        }
+        return newarrey;
+    }
+
+
+    static void printArray(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 
 }

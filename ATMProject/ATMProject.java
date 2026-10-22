@@ -19,6 +19,12 @@ public class ATMProject {
         catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
         return num;
     }
+    public static double doubleNumInput(){
+        double num = 0;
+        try{num = sc.nextDouble();}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
+        return num;
+    }
     public static boolean login(){
         for (int i = 0; i < 3; i++)
         {
@@ -64,7 +70,7 @@ public class ATMProject {
                     checkBalance();
                     break;
                 case 2:
-                    evenOrOdd();
+                    deposit();
                     break;
                 case 3:
                     maxOfThree();
@@ -91,6 +97,19 @@ public class ATMProject {
 
     public static double checkBalance(){
         return balance;
+    }
+    public static void deposit() {
+        System.out.print("Enter the deposit amount: ");
+        double depo = doubleNumInput();
+        if (depo <1 || depo >5000)
+        {
+            System.out.println("invalid amount, (1-5000)");
+            return;
+        }
+        balance += depo;
+        depositAmount +=depo;
+        depositCount++;
+
     }
 
     public static void main(String[] args){

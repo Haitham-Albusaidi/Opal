@@ -37,8 +37,64 @@ public class ATMProject {
         return false;
         
     }
-    public static void main(String[] args){
+    public static void menu(){
+        boolean isRunning = false;
+        if (login())
+        {
+            isRunning = true;
+        }
+        else{
+            System.out.println("Card locked");
+        }
+        while (isRunning) {
+            System.out.println("Welcome to the ATM App");
+            System.out.println("Please select an option:");
+            System.out.println("1. Check balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Account tier");
+            System.out.println("5. Savings projection");
+            System.out.println("6. Receipt summary");
+            System.out.println("7. Change PIN");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = numinput();
+            switch (choice) {
+                case 1:
+                    checkBalance();
+                    break;
+                case 2:
+                    evenOrOdd();
+                    break;
+                case 3:
+                    maxOfThree();
+                    break;
+                case 4:
+                    factorial();
+                    break;
+                case 5:
+                    multiplicationTable();
+                    break;
+                case 6:
+                    starTriangle();
+                    break;
+                case 7:
+                    isPrime();
+                    break;
+                case 0:
+                    isRunning = false;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } 
+    }
 
-        System.out.println(login());
+    public static double checkBalance(){
+        return balance;
+    }
+
+    public static void main(String[] args){
+        login();
+        menu();
     }
 }

@@ -73,10 +73,10 @@ public class ATMProject {
                     deposit();
                     break;
                 case 3:
-                    maxOfThree();
+                    withdraw();
                     break;
                 case 4:
-                    factorial();
+                    accountTier();
                     break;
                 case 5:
                     multiplicationTable();
@@ -111,6 +111,69 @@ public class ATMProject {
         depositCount++;
 
     }
+    
+    public static void withdraw(){
+        System.out.print("Enter the withdraw amount: ");
+        double draw = doubleNumInput();
+        int fee = 0;
+        if(draw <=500)
+        {
+            fee = 2;
+        }
+        else if (draw >500)
+        {
+            fee = 5;
+        }
+
+        if (draw <1 || draw >1000)
+        {
+            System.out.println("invalid amount, (1-1000)");
+            return;
+        }
+        if (draw <=500 && draw+2 > balance)
+        {
+            System.out.println("invalid amount, Cannot withdraw more than the balance");
+            return;
+        }
+        
+        if (draw >500 && draw+5 > balance)
+        {
+            System.out.println("invalid amount, Cannot withdraw more than the balance");
+            return;
+        }
+        
+        if(draw%10 != 0)
+        {
+            System.out.println("invalid amount, only multiple of 10");
+            return;
+        }
+        
+            System.out.println("Fee: " + fee);
+            balance -=draw+fee;
+            WithdrawalCount++;
+            WithdrawalAmount+=draw;
+
+    }
+
+   public static void accountTier(){
+    String tier = "";
+    double interestRate = 0;
+    if (balance < 1000) {
+        tier = "Bronze";
+        interestRate = 0.01;
+    } else if (balance >= 1000 && balance < 5000) {
+        tier = "Silver";
+        interestRate = 0.02;
+    } else if (balance >= 5000 && balance < 20000) {
+        tier = "Gold";
+        interestRate = 0.03;
+    } else {
+        tier = "Platinum";
+        interestRate = 0.04;
+    }
+    System.out.println("Account Tier: " + tier);
+    System.out.println("Interest Rate: " + (interestRate * 100) + "%");
+}
 
     public static void main(String[] args){
         login();

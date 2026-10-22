@@ -15,15 +15,38 @@ public class ArraysTask {
         int max = findMax(numbers);
         int min = findMin(numbers);
         int diff = (findMax(numbers)-findMin(numbers));
+        int even = countEven(numbers);
 
+        System.out.print("Enter a number to search for: "); 
+        int num = 0;
+        int index = 0;
+        boolean isValid = false;
+        try{num = sc.nextInt(); isValid = true;}
+        catch(Exception e) {System.out.println("Invalid input. Please enter a number.");}
+        
 
 
 
         System.out.println("Sum: " + sum);
         System.out.println("Average: " + average);
+
         System.out.println("Max: " + max);
         System.out.println("Min: " + min);
         System.out.println("Difference: " + diff);
+
+        System.out.println("Even Numbers: " + even);
+        if (isValid ){
+            index = indexOf(numbers, num);
+            if(index != -1){
+            
+            System.out.println(num+" found at index: " + index);
+            }
+            else{
+                System.out.println(num + " not found");
+            }
+        }
+        
+        
 
 
 
@@ -63,6 +86,28 @@ public class ArraysTask {
             }
         }
         return min;
+    }
+    static int countEven(int[] arr){
+        int even = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            if (arr[i] % 2 == 0){
+            even++;
+            }
+        }
+        return even;
+    }
+
+    static int indexOf(int[] arr, int target){
+        
+        for (int i = 0; i < arr.length; i++)
+        {
+            
+            if (arr[i] == target){
+                return i;
+            }
+        }
+        return -1;
     }
 
 }

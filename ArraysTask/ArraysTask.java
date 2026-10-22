@@ -14,12 +14,16 @@ public class ArraysTask {
         int diff = (findMax(numbers)-findMin(numbers));
         int even = countEven(numbers);
         int[]newarr = reverseArray(numbers);
-
+        
+        //question 1
         System.out.println("Sum: " + sum);
         System.out.println("Average: " + average);
+        
+        //question 2
         System.out.println("Max: " + max);
         System.out.println("Min: " + min);
         System.out.println("Difference: " + diff);
+        //question 3
         System.out.println("Even Numbers: " + even);
 
         System.out.print("Enter a number to search for: "); 
@@ -40,11 +44,13 @@ public class ArraysTask {
             }
         }
         
+        //question 4
         System.out.print("Original: " ); printArray(numbers);
         System.out.println();
         System.out.print("Reversed: "); printArray(newarr);
         System.out.println();
         
+        //question 5
         System.out.print("How many grades Do you want enter? ");
         int num2 =0;
         boolean isValid2 = false;

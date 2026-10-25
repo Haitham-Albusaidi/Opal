@@ -151,6 +151,10 @@ public class ATMProject {
             System.out.println("invalid amount, only multiple of 10");
             return;
         }
+        if (draw + fee > 1000) {
+            System.out.println("Cannot withdraw more than 1000 in this session.");
+            return;
+        }
         
             System.out.println("Fee: " + fee);
             System.out.println("Total amount withdrawn: " + (draw + fee));
@@ -196,9 +200,10 @@ public class ATMProject {
             return;
         }
         double interestRate = getInterestRate();
+        double currentBalance = balance;  
         for (int i = 1; i <= years; i++) {
-            double newbalance = balance * interestRate;
-            System.out.printf("Year %d: %.2f\n", i, newbalance);
+            currentBalance *= (1 + interestRate);  
+            System.out.printf("Year %d: %.2f\n", i, currentBalance);
         }
     }
     
@@ -220,6 +225,12 @@ public class ATMProject {
         int newPin = numinput();
         if (newPin < 1000 || newPin > 9999) {
             System.out.println("Invalid PIN. Please enter a 4-digit number.");
+            return;
+        }
+        System.out.print("Confirm your new PIN: ");
+        int confirmPin = numinput();
+        if (newPin != confirmPin) {
+            System.out.println("PINs do not match. Change failed.");
             return;
         }
         pin = newPin;

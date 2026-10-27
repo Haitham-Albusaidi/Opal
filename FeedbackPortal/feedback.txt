@@ -1,0 +1,3 @@
+haitham|5|good
+ahmed|1|very
+kumail|3|passable

@@ -152,5 +152,21 @@ public class WarmUp2 {
     return neew;
     }
 
+    public static String stringYak(String str) {
+    String neew = "";
+    for ( int i = 0 ; i < str.length() ; i++)
+    {
+        if (i+2<str.length() && str.charAt(i)=='y' && str.charAt(i+2)=='k') {
+        i =  i + 2;
+        } else {
+        neew = neew + str.charAt(i);
+        }
+    }
+    
+    return neew;
+    }
+
+
+
 
 }

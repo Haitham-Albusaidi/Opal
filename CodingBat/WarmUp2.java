@@ -59,4 +59,13 @@ public class WarmUp2 {
     return neew;
     }
 
+    public static String stringSplosion(String str) {
+    String neew = "";
+    for (int i = 0 ; i < str.length() ; i++)
+    {
+        neew = neew + str.substring(0,i+1);
+    }
+    return neew;
+    }
+
 }

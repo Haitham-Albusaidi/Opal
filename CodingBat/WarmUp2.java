@@ -138,6 +138,19 @@ public class WarmUp2 {
     return neew;
     }
 
+    public static String altPairs(String str) {
+    String neew = "";
+    for (int  i = 0; i < str.length() ; i+=4)
+    {
+        int index2 = i+2;
+        if(index2 > str.length())
+        {
+        index2 = str.length();
+        }
+        neew = neew + str.substring(i,index2);
+    }
+    return neew;
+    }
 
 
 }

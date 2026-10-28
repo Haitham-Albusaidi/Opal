@@ -1,8 +1,9 @@
-package Pattrens;
+package Patterns;
 
 import java.util.Scanner;
 
-public class FullDiamond {
+public class HollowDiamond {
+
     public static void main(String[] args) {
         System.out.print("how many rows do you want? : ");
         Scanner sc = new Scanner(System.in);
@@ -11,7 +12,7 @@ public class FullDiamond {
         sc.close();
     }
     public static void printDiamond(int rows){
-        for (int i = 0; i<=rows ; i++)
+        for (int i = 1; i<=rows ; i++)
         {
             
             for (int j = rows; j>i; j--)
@@ -20,7 +21,11 @@ public class FullDiamond {
             }
             for (int k = 0; k < (i*2-1) ; k++)
             {
-                System.out.print("*");
+                if( k == 0 || k == i*2-2)
+                {
+                    System.out.print("x");
+                }
+                else{System.out.print(" ");}
             }
             System.out.println();   
         }
@@ -32,11 +37,13 @@ public class FullDiamond {
             }
             for (int k = 0; k < (i*2-1) ; k++ )
             {
-                System.out.print("*");
+                if(k == 0 || k == i*2-2)
+                {
+                    System.out.print("x");
+                }
+                else{System.out.print(" ");}
             }
             System.out.println(); 
         }
-        
-    
     }
 }

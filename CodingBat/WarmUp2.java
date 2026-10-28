@@ -68,4 +68,18 @@ public class WarmUp2 {
     return neew;
     }
 
+    public static int last2(String str) {
+        if(str.length() <=1) return 0;
+    int count = 0;
+    String target = str.substring(str.length()-2);
+    for (int i = 0 ; i < str.length()-2; i++)
+    {
+        if(str.substring(i,i+2).equals(target) )
+        {
+        count++;
+        }
+    }
+    return count;
+    }
+
 }

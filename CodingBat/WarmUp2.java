@@ -50,4 +50,13 @@ public class WarmUp2 {
     return str.substring(i+1,i+2).equals("x");
     }
 
+    public static String stringBits(String str) {
+    String neew = "";
+    for (int i = 0; i < str.length(); i = i+2)
+    {
+        neew = neew + str.charAt(i);
+    }
+    return neew;
+    }
+
 }

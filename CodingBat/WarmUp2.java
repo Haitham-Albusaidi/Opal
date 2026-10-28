@@ -126,6 +126,17 @@ public class WarmUp2 {
     return count;
     }
 
+    public static String stringX(String str) {
+    String neew = "";
+    for (int i = 0 ; i < str.length() ; i++)
+    {
+        if(!((i>0 && i < str.length()-1) && str.substring(i,i+1).equals("x")))
+        {
+        neew = neew + str.substring(i,i+1);
+        }
+    }
+    return neew;
+    }
 
 
 
